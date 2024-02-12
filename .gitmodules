@@ -26,10 +26,6 @@
 	path = Tweaks/YouTubeHeader
 	url = https://github.com/PoomSmart/YouTubeHeader.git
 	branch = main
-[submodule "Tweaks/PSHeader"]
-	path = Tweaks/PSHeader
-	url = https://github.com/PoomSmart/PSHeader.git
-	branch = master
 [submodule "Extensions"]
 	path = Extensions
 	url = https://github.com/CokePokes/YoutubeExtensions.git
