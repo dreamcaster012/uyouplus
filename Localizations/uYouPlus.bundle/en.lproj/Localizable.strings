@@ -100,7 +100,7 @@
 "MISCELLANEOUS" = "🔎 Miscellaneous";
 
 "HIDE_UYOU" = "Hide uYou tab";
-"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
+"HIDE_ISPONSORBLOCK" = "Hides iSponsorBlock button";
 
 "CAST_CONFIRM" = "YTCastConfirm";
 "CAST_CONFIRM_DESC" = "Shows a confirmation alert before casting";
