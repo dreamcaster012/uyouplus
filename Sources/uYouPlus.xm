@@ -332,9 +332,9 @@ NSBundle *tweakBundle = uYouPlusBundle();
     if (IS_ENABLED(@"hidePreviousAndNextButton_enabled")) {
         %init(gHidePreviousAndNextButton);
     }
-    if (IS_ENABLED(@"replacePreviousAndNextButton_enabled")) {
-        %init(gReplacePreviousAndNextButton);
-    }
+    // if (IS_ENABLED(@"replacePreviousAndNextButton_enabled")) {
+    //     %init(gReplacePreviousAndNextButton);
+    // }
     if (IS_ENABLED(@"disableHints_enabled")) {
         %init(gDisableHints);
     }
