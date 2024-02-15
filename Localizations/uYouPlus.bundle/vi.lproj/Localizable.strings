@@ -5,7 +5,7 @@
 "VERSION_CHECK" = "Chạm để kiểm tra bản cập nhật!";
 
 "REPORT_AN_ISSUE" = "Báo lỗi";
-"ADD_TITLE" = "Add your title here...";
+"ADD_TITLE" = "Thêm tiêu đề lỗi ở đây...";
 
 "QUIT_YOUTUBE" = "Đóng YouTube";
 
@@ -100,7 +100,7 @@
 "MISCELLANEOUS" = "🔎 Cài đặt khác";
 
 "HIDE_UYOU" = "Hide uYou tab";
-"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
+"HIDE_ISPONSORBLOCK" = "Ẩn nút iSponsorBlock trên thanh menu";
 
 "CAST_CONFIRM" = "Xác nhận trước khi cast video (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Hiện hộp thoại xác nhận trước khi cast video sang TV để tránh vô tình chiếm quyền điều khiển TV.";
