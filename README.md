@@ -25,6 +25,9 @@
    <a href="https://github.com/qnblackcat/uYouPlus#support-the-developers"><img src="https://img.shields.io/badge/-Support-lightgrey?style=social&logo=paypal" alt="Badge"></img></a>
 </p>
 
+> [!NOTE]
+> uYouPlus is a **modified version** of uYou. **Please DO NOT bother MiRO92 with issues unrelated to uYou!**
+
 ## Table of contents
 
 * [Download](#download)
@@ -37,7 +40,7 @@
 
 ## Download
 
-- The latest version of **uYouPlus** can be found in the [Release](https://github.com/qnblackcat/uYouPlus/releases/latest) tab.
+- The latest version of **uYouPlus** can be found under [Releases](https://github.com/qnblackcat/uYouPlus/releases/latest).
 - **Compatibility:** Requires iOS/iPadOS 14.0 or later.
 
 <!-- - For AltStore user: 
@@ -83,43 +86,38 @@ See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installati
 
 ## Features
 
-1. **uYou:** uYou has a ton of features that I can't list them all. Visit [here](https://miro92.com/repo/depictions/?p=com.miro.uyou) for more info!
+1. **[uYou](https://miro92.com/repo/depictions/?p=com.miro.uyou):** Enhance your YouTube experience.
 
-2. **iSponsorBlock:** Skips annoying sponsor ads inside videos. iSponsorBlock is based on [SponsorBlock engine](https://sponsor.ajay.app/). Basically, this is the iOS version of the SponsorBlock extension.
+2. **[iSponsorBlock](https://github.com/Galactic-Dev/iSponsorBlock):** A jailbreak tweak that implements the SponsorBlock API to skip sponsorships in YouTube vidoes.
 
-3. **YouPiP:** enable YouTube's **native PiP**. More options are in YouTube Settings - General.
+3. **[YouPiP](https://poomsmart.github.io/repo/depictions/youpip):** Enable **native PiP** in iOS YouTube app.
 
-4. **YTUHD:** unlock VP9 codec and in effect, enables video quality of 2K and 4K. You can enable/disable YTUHD in YouTube Settings - Video quality preferences.
+4. **[YTUHD](https://poomsmart.github.io/repo/depictions/ytuhd):** Unlock 1440p (2K) and 2160p (4K) resolutions in iOS YouTube app.
 
 <details>
   <summary>And many more!</summary>
 
-5. **YTClassicVideoQuality:** since YouTube v16.xx, you need one more step to change the video quality. YTClassicVideoQuality brings back the old video quality selector, which is a lot better than the new one.
+5. **[YTClassicVideoQuality](https://poomsmart.github.io/repo/depictions/ytclassicvideoquality):** Revert to the original video quality selector in YouTube app.
 
-6. **YTNoHoverCards:** offer an option to enable/disable the annoying suggested videos show up at the end of the videos.
+6. **[YTNoHoverCards](https://level3tjg.me/repo/depictions/?p=com.level3tjg.ytnohovercards):** Disable overlay at the end of YouTube videos.
 
-7. **YouRememberCaption**: make YouTube remember your video caption setting (if not already).
+7. **[YouRememberCaption](https://poomsmart.github.io/repo/depictions/youremembercaption)**: Make YouTube remember your video caption setting, if not already.
 
-8. **NoYTPremium**: remove YouTube Premium upsells.
+8. **[NoYTPremium](https://poomsmart.github.io/repo/depictions/noytpremium)**: Remove YouTube Premium upsell alerts.
 
-9. **YTSpeed**: add 2.25, 2.5, 2.75, and 3x playback speed
+9. **[YTSpeed](http://cydia.saurik.com/package/com.lyvendia.ytspeed/)**: Simple playback speed tweak for the YouTube app on jailbroken iOS/iPadOS devices.
 
-10. **YTMiniplayerEnabler**: enable Miniplayer for all YouTube videos.
+10. **[YTMiniplayerEnabler](https://level3tjg.me/repo/depictions/?p=com.level3tjg.ytminiplayerenabler)**: Enable Miniplayer for all YouTube videos.
 
-11. **DontEatMyContent**: prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
+11. **[DontEatMyContent](https://github.com/therealFoxster/DontEatMyContent)**: Prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube.
 
-12. **YTABConfig**: allow user to control over YouTube A/B testing flags.
+12. **[YTABConfig](https://poomsmart.github.io/repo/depictions/ytabconfig)**: Configure A/B settings in iOS YouTube app.
 
-13. **YouMute**: mute YouTube videos via a button.
+13. **[YouMute](https://poomsmart.github.io/repo/depictions/youmute)**: Mute/unmute videos in iOS YouTube directly.
 
-14. **YouQuality**: change video quality via a button.
-
-15. **YTVideoOverlay**: add buttons to overlay the video.
+14. **[YouQuality](https://poomsmart.github.io/repo/depictions/youquality)**: View and change video quality in YouTube app from the video overlay.
 
 </details>
-
-> [!IMPORTANT]
-> **uYouPlus** is a modified version of **uYou**. **Please DO NOT bother MiRO92 with issues unrelated to uYou!**
 
 ## Credits
 
@@ -236,12 +234,12 @@ See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installati
 
 ## Support the developers!
 
-- [**MiRO92**](https://twitter.com/miro92): https://github.com/MiRO92/uYou-for-YouTube#support
-- [**Poomsmart**](https://twitter.com/poomsmart): https://poomsmart.github.io
-- [**level3tjg**](https://twitter.com/level3tjg): https://ko-fi.com/level3tjg
-- [**BandarHL**](https://twitter.com/bandarhl): https://www.paypal.com/paypalme/BandarHL
-- [**julioverne**](https://twitter.com/ijulioverne): https://www.patreon.com/julioverne
-- [**Galactic-dev**](https://twitter.com/dev_galactic):   
+- **MiRO92**: https://github.com/MiRO92/uYou-for-YouTube#support
+- **PoomSmart**: https://poomsmart.github.io
+- **level3tjg**: https://ko-fi.com/level3tjg
+- **BandarHL**: https://www.paypal.com/paypalme/BandarHL
+- **julioverne**: https://www.patreon.com/julioverne
+- **Galactic-Dev**:   
   - Paypal: https://www.paypal.com/paypalme/DBrett684 
   - Venmo: https://venmo.com/u/DavidBrett
 
