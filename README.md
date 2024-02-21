@@ -229,6 +229,13 @@ See [Installation - Wiki](https://github.com/qnblackcat/uYouPlus/wiki/Installati
         <br>
         <a href='https://theos.dev'>theos</a>
     </td>
+    <td id='qnblackcat'>
+        <a href='https://github.com/qnblackcat'>
+            <img src='https://github.com/qnblackcat.png' width='140px;'>
+        </a>
+        <br>
+        <a href='https://https://twitter.com/t70438299'>qnblackcat</a>
+    </td>
 </tr>
 </table>
 
