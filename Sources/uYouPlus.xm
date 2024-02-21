@@ -27,11 +27,12 @@ NSBundle *tweakBundle = uYouPlusBundle();
 %end
 
 // Disable double tap to seek
-%hook YTDoubleTapToSeekController
-- (void)enableDoubleTapToSeek:(BOOL)arg1 {
-    return IS_ENABLED(@"doubleTapToSeek_disabled") ? %orig(NO) : %orig;
-}
-%end
+// Not needed anymore because uYou v3.0.3+ added this feature
+// %hook YTDoubleTapToSeekController
+// - (void)enableDoubleTapToSeek:(BOOL)arg1 {
+//     return IS_ENABLED(@"doubleTapToSeek_disabled") ? %orig(NO) : %orig;
+// }
+// %end
 
 // Disable snap to chapter
 %hook YTSegmentableInlinePlayerBarView
@@ -99,15 +100,16 @@ NSBundle *tweakBundle = uYouPlusBundle();
 %end
 
 // Hide next and previous buttons
-%group gHidePreviousAndNextButton
-%hook YTColdConfig
-- (BOOL)removeNextPaddleForSingletonVideos { return YES; }
-- (BOOL)removePreviousPaddleForSingletonVideos { return YES; }
-%end
-%end
+// Not needed anymore because uYou v3.0.3+ added this feature
+// %group gHidePreviousAndNextButton
+// %hook YTColdConfig
+// - (BOOL)removeNextPaddleForSingletonVideos { return YES; }
+// - (BOOL)removePreviousPaddleForSingletonVideos { return YES; }
+// %end
+// %end
 
 // Replace next and previous buttons with fast forward and rewind
-// Not needed anymore because uYou v3.0.2+ added this features
+// Not needed anymore because uYou v3.0.2+ added this feature
 // %group gReplacePreviousAndNextButton
 // %hook YTColdConfig
 // - (BOOL)replaceNextPaddleWithFastForwardButtonForSingletonVods { return YES; }
@@ -158,11 +160,12 @@ NSBundle *tweakBundle = uYouPlusBundle();
 %end
 
 // Disable resume to Shorts
-%hook YTShortsStartupCoordinator
-- (id)evaluateResumeToShorts { 
-    return IS_ENABLED(@"disableResumeToShorts") ? nil : %orig;
-}
-%end
+// Not needed anymore because uYou v3.0.3+ added this feature
+// %hook YTShortsStartupCoordinator
+// - (id)evaluateResumeToShorts { 
+//     return IS_ENABLED(@"disableResumeToShorts") ? nil : %orig;
+// }
+// %end
 
 # pragma mark - Miscellaneous
 
@@ -177,7 +180,7 @@ NSBundle *tweakBundle = uYouPlusBundle();
 
 // YTCastConfirm
 // See YTCastConfirm.xm
-// Not needed anymore because uYou v3.0.2+ added this features
+// Not needed anymore because uYou v3.0.2+ added this feature
 
 // Disable hints - https://github.com/LillieH001/YouTube-Reborn/blob/v4/
 %group gDisableHints
@@ -329,9 +332,9 @@ NSBundle *tweakBundle = uYouPlusBundle();
     // dlopen([[NSString stringWithFormat:@"%@/Frameworks/uYou.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
 
     %init;
-    if (IS_ENABLED(@"hidePreviousAndNextButton_enabled")) {
-        %init(gHidePreviousAndNextButton);
-    }
+    // if (IS_ENABLED(@"hidePreviousAndNextButton_enabled")) {
+    //     %init(gHidePreviousAndNextButton);
+    // }
     // if (IS_ENABLED(@"replacePreviousAndNextButton_enabled")) {
     //     %init(gReplacePreviousAndNextButton);
     // }
