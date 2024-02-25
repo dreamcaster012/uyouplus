@@ -118,7 +118,7 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED) {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor clearColor];
     }
 }
 %end
