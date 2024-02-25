@@ -135,20 +135,10 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED && [self.nextResponder isKindOfClass:%c(_ASDisplayView)]) {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor clearColor];
     }
 }
 %end
-
-// Sub menu?
-// %hook ELMView
-// - (void)didMoveToWindow {
-//     %orig;
-//     if (IS_DARK_APPEARANCE_ENABLED) {
-//         // self.subviews[0].backgroundColor = [UIColor clearColor];
-//     }
-// }
-// %end
 
 // iSponsorBlock
 %hook SponsorBlockSettingsController
@@ -169,100 +159,13 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
 }
 %end
 
-// Search view
-// %hook YTSearchBarView 
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor blueColor]) : %orig;
-// }
-// %end
-
-// History search view
-// %hook YTSearchBoxView 
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor blackColor]) : %orig;
-
-// }
-// %end
-
-// Comment view
-// %hook YTCommentView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor blackColor]) : %orig;
-// }
-// %end
-
-// %hook YTCreateCommentAccessoryView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor blackColor]) : %orig;
-// }
-// %end
-
-// %hook YTCreateCommentTextView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor blackColor]) : %orig;
-// }
-// - (void)setTextColor:(UIColor *)color { // fix black text in #Shorts video's comment
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor whiteColor]) : %orig;
-// }
-// %end
-
-// %hook YTCommentDetailHeaderCell
-// - (void)didMoveToWindow {
-//     %orig;
-//     if (IS_DARK_APPEARANCE_ENABLED) {
-//         // self.subviews[2].backgroundColor = [UIColor blackColor];
-//     }
-// }
-// %end
-
-// %hook YTFormattedStringLabel  // YT is werid...
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor greenColor]) : %orig;
-// }
-// %end
-
-// Live chat comment
-// %hook YCHLiveChatActionPanelView 
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor greenColor]) : %orig;
-// }
-// %end
-
-// %hook YTEmojiTextView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor greenColor]) : %orig;
-// }
-// %end
-
-// %hook YCHLiveChatView
-// - (void)didMoveToWindow {
-//     %orig;
-//     if (IS_DARK_APPEARANCE_ENABLED) {
-//         // self.subviews[1].backgroundColor = [UIColor blackColor];
-//     }
-// }
-// %end
-
-// %hook YTCollectionView 
-// - (void)setBackgroundColor:(UIColor *)color { 
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor greenColor]) : %orig;
-// }
-// %end
-
-//
-// %hook YTBackstageCreateRepostDetailView
-// - (void)setBackgroundColor:(UIColor *)color {
-//     return IS_DARK_APPEARANCE_ENABLED ? %orig([UIColor greenColor]) : %orig;
-// }
-// %end
-
 // Others
 %hook _ASDisplayView
 - (void)didMoveToWindow {
     %orig;
     if (IS_DARK_APPEARANCE_ENABLED) {
         
-        // is this good?
+        //
         UIResponder *responder = self.nextResponder;
         UIViewController *closestViewController = nil;
     
@@ -280,25 +183,24 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
             [NSStringFromClass([self.superview class]) isEqualToString:@"ELMView"])) {
             
             self.backgroundColor = [UIColor clearColor];
-
         }
 
         // Save video bottom
         if ([NSStringFromClass([closestViewController class]) isEqualToString:@"YTBottomSheetController"]) { self.backgroundColor = [UIColor clearColor]; } 
 
-        // if ([self.nextResponder isKindOfClass:%c(ASScrollView)]) { self.backgroundColor = [UIColor clearColor]; }
-        // if ([self.accessibilityIdentifier isEqualToString:@"eml.cvr"]) { self.backgroundColor = [UIColor blackColor]; }
+        //  Subcriptions header
+        if ([NSStringFromClass([closestViewController class]) isEqualToString:@"YTMySubsFilterHeaderViewController"] && 
+            ([NSStringFromClass([self.superview class]) isEqualToString:@"YTELMView"])) { 
+            self.backgroundColor = [UIColor clearColor]; 
+        } 
+
         if ([self.accessibilityIdentifier isEqualToString:@"eml.live_chat_text_message"]) { self.backgroundColor = [UIColor blackColor]; }
-        // if ([self.accessibilityIdentifier isEqualToString:@"rich_header"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.ui.comment_cell"]) { self.backgroundColor = [UIColor blackColor]; }
-        // if ([self.accessibilityIdentifier isEqualToString:@"id.ui.cancel.button"]) { self.superview.backgroundColor = [UIColor clearColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.comment_composer"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.elements.components.video_list_entry"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.comment.guidelines_text"]) { self.superview.backgroundColor = [UIColor blackColor]; }
-        // if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_bottom_sheet_container"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.comment.channel_guidelines_entry_banner_container"]) { self.backgroundColor = [UIColor blackColor]; }
         if ([self.accessibilityIdentifier isEqualToString:@"id.comment.comment_group_detail_container"]) { self.backgroundColor = [UIColor clearColor]; }
-        // if ([self.accessibilityIdentifier hasPrefix:@"id.elements.components.overflow_menu_item_"]) { self.backgroundColor = [UIColor clearColor]; }
     }
 }
 %end
