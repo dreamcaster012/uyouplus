@@ -173,8 +173,10 @@ NSBundle *tweakBundle = uYouPlusBundle();
 %hook YTRightNavigationButtons
 - (void)didMoveToWindow {
     %orig;
-    if (IS_ENABLED(@"hideiSponsorBlockButton_enabled"))
+    if (IS_ENABLED(@"hideiSponsorBlockButton_enabled")) {
         self.sponsorBlockButton.hidden = YES;
+        self.sponsorBlockButton.frame = CGRectZero;
+    }
 }
 %end
 
