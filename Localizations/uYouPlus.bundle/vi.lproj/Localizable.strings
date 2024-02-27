@@ -48,6 +48,15 @@
 "YT_MINIPLAYER" = "Cho phép sử dụng trình phát thu nhỏ với mọi video";
 "YT_MINIPLAYER_DESC" = "Ví dụ: Video cho trẻ em.";
 
+"HIDE_REMIX_BUTTON" = "Ẩn nút Phối lại";
+"HIDE_REMIX_BUTTON_DESC" = "";
+
+"HIDE_CLIP_BUTTON" = "Ẩn nút Tạo đoạn video";
+"HIDE_CLIP_BUTTON_DESC" = "";
+
+"HIDE_DOWNLOAD_BUTTON" = "Ẩn nút Tải xuống";
+"HIDE_DOWNLOAD_BUTTON_DESC" = "";
+
 "STOCK_VOLUME_HUD" = "Sử dụng thanh âm lượng mặc định của iOS";
 "STOCK_VOLUME_HUD_DESC" = "";
 

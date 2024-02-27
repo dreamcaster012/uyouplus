@@ -26,14 +26,6 @@ NSBundle *tweakBundle = uYouPlusBundle();
 }
 %end
 
-// Disable double tap to seek
-// Not needed anymore because uYou v3.0.3+ added this feature
-// %hook YTDoubleTapToSeekController
-// - (void)enableDoubleTapToSeek:(BOOL)arg1 {
-//     return IS_ENABLED(@"doubleTapToSeek_disabled") ? %orig(NO) : %orig;
-// }
-// %end
-
 // Disable snap to chapter
 %hook YTSegmentableInlinePlayerBarView
 - (void)didMoveToWindow {
@@ -49,6 +41,58 @@ NSBundle *tweakBundle = uYouPlusBundle();
 - (BOOL)videoZoomFreeZoomEnabledGlobalConfig {
     return IS_ENABLED(@"pinchToZoom_enabled") ? NO : %orig;
 }
+%end
+
+// Hide useless buttons under the video player by @PoomSmart
+static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *identifiers) {
+    for (id child in [nodeController children]) {
+        if ([child isKindOfClass:%c(ELMNodeController)]) {
+            NSArray <ELMComponent *> *elmChildren = [(ELMNodeController *)child children];
+            for (ELMComponent *elmChild in elmChildren) {
+                for (NSString *identifier in identifiers) {
+                    if ([[elmChild description] containsString:identifier])
+                        return YES;
+                }
+            }
+        }
+
+        if ([child isKindOfClass:%c(ASNodeController)]) {
+            ASDisplayNode *childNode = ((ASNodeController *)child).node; // ELMContainerNode
+            NSArray *yogaChildren = childNode.yogaChildren;
+            for (ASDisplayNode *displayNode in yogaChildren) {
+                if ([identifiers containsObject:displayNode.accessibilityIdentifier])
+                    return YES;
+            }
+
+            return findCell(child, identifiers);
+        }
+
+        return NO;
+    }
+    return NO;
+}
+
+%hook ASCollectionView
+
+- (CGSize)sizeForElement:(ASCollectionElement *)element {
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.scrollable_action_bar"]) {
+        ASCellNode *node = [element node];
+        ASNodeController *nodeController = [node controller];
+        if (IS_ENABLED(@"hideRemixButton_enabled") && findCell(nodeController, @[@"id.video.remix.button"])) {
+            return CGSizeZero;
+        }
+        
+        if (IS_ENABLED(@"hideClipButton_enabled") && findCell(nodeController, @[@"clip_button.eml"])) {
+            return CGSizeZero;
+        }
+        
+        if (IS_ENABLED(@"hideDownloadButton_enabled") && findCell(nodeController, @[@"id.ui.add_to.offline.button"])) {
+            return CGSizeZero;
+        }
+    }
+    return %orig;
+}
+
 %end
 
 // Enable miniplayer for all videos
@@ -99,24 +143,6 @@ NSBundle *tweakBundle = uYouPlusBundle();
 }
 %end
 
-// Hide next and previous buttons
-// Not needed anymore because uYou v3.0.3+ added this feature
-// %group gHidePreviousAndNextButton
-// %hook YTColdConfig
-// - (BOOL)removeNextPaddleForSingletonVideos { return YES; }
-// - (BOOL)removePreviousPaddleForSingletonVideos { return YES; }
-// %end
-// %end
-
-// Replace next and previous buttons with fast forward and rewind
-// Not needed anymore because uYou v3.0.2+ added this feature
-// %group gReplacePreviousAndNextButton
-// %hook YTColdConfig
-// - (BOOL)replaceNextPaddleWithFastForwardButtonForSingletonVods { return YES; }
-// - (BOOL)replacePreviousPaddleWithRewindButtonForSingletonVods { return YES; }
-// %end
-// %end
-
 // Bring back the red progress bar - Broken?!
 %hook YTInlinePlayerBarContainerView
 - (id)quietProgressBarColor {
@@ -159,14 +185,6 @@ NSBundle *tweakBundle = uYouPlusBundle();
 }
 %end
 
-// Disable resume to Shorts
-// Not needed anymore because uYou v3.0.3+ added this feature
-// %hook YTShortsStartupCoordinator
-// - (id)evaluateResumeToShorts { 
-//     return IS_ENABLED(@"disableResumeToShorts") ? nil : %orig;
-// }
-// %end
-
 # pragma mark - Miscellaneous
 
 // Hide iSponsorBlock
@@ -179,10 +197,6 @@ NSBundle *tweakBundle = uYouPlusBundle();
     }
 }
 %end
-
-// YTCastConfirm
-// See YTCastConfirm.xm
-// Not needed anymore because uYou v3.0.2+ added this feature
 
 // Disable hints - https://github.com/LillieH001/YouTube-Reborn/blob/v4/
 %group gDisableHints
@@ -334,12 +348,6 @@ NSBundle *tweakBundle = uYouPlusBundle();
     // dlopen([[NSString stringWithFormat:@"%@/Frameworks/uYou.dylib", [[NSBundle mainBundle] bundlePath]] UTF8String], RTLD_LAZY);
 
     %init;
-    // if (IS_ENABLED(@"hidePreviousAndNextButton_enabled")) {
-    //     %init(gHidePreviousAndNextButton);
-    // }
-    // if (IS_ENABLED(@"replacePreviousAndNextButton_enabled")) {
-    //     %init(gReplacePreviousAndNextButton);
-    // }
     if (IS_ENABLED(@"disableHints_enabled")) {
         %init(gDisableHints);
     }
