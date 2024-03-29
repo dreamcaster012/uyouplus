@@ -48,13 +48,13 @@
 "YT_MINIPLAYER" = "Activar el minirreproductor para todos los vídeos de YouTube";
 "YT_MINIPLAYER_DESC" = "Vídeos infantiles por ejemplo.";
 
-"HIDE_REMIX_BUTTON" = "Hides Remix button";
+"HIDE_REMIX_BUTTON" = "Oculta el botón Remix";
 "HIDE_REMIX_BUTTON_DESC" = "";
 
-"HIDE_CLIP_BUTTON" = "Hide Clip button";
+"HIDE_CLIP_BUTTON" = "Ocultar botón Clip";
 "HIDE_CLIP_BUTTON_DESC" = "";
 
-"HIDE_DOWNLOAD_BUTTON" = "Hide Download button";
+"HIDE_DOWNLOAD_BUTTON" = "Ocultar botón de descarga";
 "HIDE_DOWNLOAD_BUTTON_DESC" = "";
 
 "STOCK_VOLUME_HUD" = "Utiliza el HUD de volumen de iOS";
@@ -108,8 +108,8 @@
 // Miscellaneous
 "MISCELLANEOUS" = "🔎 Varios";
 
-"HIDE_UYOU" = "Hide uYou tab";
-"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
+"HIDE_UYOU" = "Ocultar pestaña uYou";
+"HIDE_ISPONSORBLOCK" = "Ocultar botón iSponsorBlock";
 
 "CAST_CONFIRM" = "Alerta de confirmación antes de Enviar contenido (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Mostrar una alerta de confirmación antes de Enviar contenido para prevenir el secuestro accidental del TV.";
